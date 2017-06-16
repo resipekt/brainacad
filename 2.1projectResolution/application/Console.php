@@ -22,22 +22,22 @@ class Console
     {
         switch ($status) {
             case self::SUCCESS:
-                $color = "[0;32m";
+                $color = "<span style=color:green></span>";
                 break;
             case self::FAILURE:
-                $color = "[0;31m";
+                $color = "<span style=color:red></span>";
                 break;
             case self::WARNING:
-                $color = "[1;33m";
+                $color = "<span style=color:yellow></span>";
                 break;
             case self::NOTE:
-                $color = "[0;34m";
+                $color = "<span style=color:grey></span>";
                 break;
             default:
-                $color = '[1;37m';
+                $color = "<span style=color:white></span>";
         }
 
-        return chr(27) . "{$color}{$message}" . chr(27) . "[0m" . PHP_EOL;
+        return chr(27) . "{$color}{$message}" . chr(27) . "<span style=color:purple></span>" . PHP_EOL;
     }
 
     /**
@@ -46,7 +46,7 @@ class Console
      */
     public static function setWeight($message)
     {
-        return chr(27) . "[1m{$message}: " . chr(27) . "[0m";
+        return chr(27) . "<span style=color:orange>{$message}</span>: " . chr(27) . "<span style=color:white></span>";
     }
 
     /**
